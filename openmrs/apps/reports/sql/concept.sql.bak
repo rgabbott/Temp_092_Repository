@@ -1,0 +1,14 @@
+select c.concept_id ,c.retired ,c.datatype_id ,c.class_id from concept c order by c.concept_id ;
+
+select * from concept order by concept_id ;
+--,(select sn.name from concept_name sn where c.concept_id = sn.concept_id and sn.concept_name_type="FULLY_SPECIFIED") as Concept_Name
+--,(select sn.name from concept_name sn where c.concept_id = sn.concept_id and sn.concept_name_type="SHORT") as Short_Name
+--,(select dt.name from concept_datatype dt where c.datatype_id = dt.concept_datatype_id) as Datatype_Name
+--,(select cl.name from concept_class cl where c.class_id = cl.concept_class_id) as Class_Name
+
+select * from concept_name order by concept_id,concept_name_id ;
+select * from concept_datatype order by concept_datatype_id ;
+select * from concept_class order by concept_class_id ;
+select * from concept_answer order by concept_id,concept_answer_id ;
+select * from concept_set order by concept_set, concept_id, concept_set_id ;
+

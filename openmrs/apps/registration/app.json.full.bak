@@ -1,4 +1,3 @@
-
 {
         "id": "bahmni.registration",
         "instanceOf":"bahmni.template.registration",
@@ -44,38 +43,38 @@
 "patientFirstContactInformationSection": {
                 "title": "patientFirstContactInformationSection",
                 "translationKey": "REGISTRATION_PATIENT_FIRST_CONTACT_SECTION_INFO_KEY",
-                "attributes": ["First Contact First Name","First Contact Middle Name","First Contact Last Name","First Contact Relationship to Patient","First Contact Street Address 1","First Contact Street Address 2","First Contact City","First Contact District","First Contact Regional State","First Contact Country","First Contact Home Phone","First Contact Mobile Phone","First Contact Email Address","First Contact Comment"],
+                "attributes": ["First Contact First Name","First Contact Middle Name","First Contact Last Name","First Contact Street Address 1","First Contact Street Address 2","First Contact City","First Contact Regional State","First Contact District","First Contact Country","First Contact Home Phone","First Contact Mobile Phone","First Contact Email Address","First Contact Comment"],
                 "order" : 3,
                 "expanded": true
         },
 "patientSecondContactInformation": {
                 "title": "patientSecondContactInformation",
                 "translationKey": "REGISTRATION_PATIENT_SECOND_CONTACT_INFORMATION",
-                "attributes": ["Second Contact First Name","Second Contact Middle Name","Second Contact Last Name","Second Contact Relationship to Patient","Second Contact Street Address 1","Second Contact Street Address 2","Second Contact City","Second Contact District","Second Contact Regional State","Second Contact Country","Second Contact Home Phone","Second Contact Mobile Phone","Second Contact Email Address","Second Contact Comment"],
+                "attributes": ["Second Contact First Name","Second Contact Middle Name","Second Contact Last Name","Second Contact Street Address 1","Second Contact Street Address 2","Second Contact City","Second Contact Regional State","Second Contact District","Second Contact Country","Second Contact Home Phone","Second Contact Mobile Phone","Second Contact Email Address","Second Contact Comment"],
                 "order" : 4,
                 "expanded": true
         },
-"patientPregnancyandBirthMedicalHistory": {
-                "title": "patientPregnancyandBirthMedicalHistory",
-                "translationKey": "REGISTRATION_PATIENT_PREGNANCY_AND_BIRTH_MEDICAL_HISTORY",
-                "attributes": ["Were there complications during pregnancy","Were there complications during birth","Did mother take vitamins during pregnancy","Did mother take vitamins before conception","Did mother smoke during pregnancy","Number of previous births","Age of Mother at conception","Age of Father at conception","Did mother have previous abortion","Number of previous abortions","Reason for abortion","Length of pregnancy in months","Pregnancy and Birth Medical History Comment"],
+"patientPriorCleftSurgery": {
+                "title": "patientPriorCleftSurgery",
+                "translationKey": "REGISTRATION_PATIENT_PRIOR_CLEFT_SURGERY",
+                "attributes": ["Prior Cleft Surgery Date","Prior Cleft Surgery Location","Prior Cleft Surgery Diagnosis","Prior Cleft Surgery Velopharyngeal Insufficiency"],
                 "order" : 5,
                 "expanded": true
         },
-"patientFamilyCleftHistory": {
-            "title": "patientFamilyCleftHistory",
-            "translationKey": "REGISTRATION_PATIENT_FAMILY_CLEFT_HISTORY",
-            "attributes": ["Family Cleft History Mother","Family Cleft History Father","Family Cleft History Sister","Family Cleft History Brother","Family Cleft History Maternal Grandmother","Family Cleft History Maternal Grandfather","Family Cleft History Maternal Aunt","Family Cleft History Maternal Uncle","Family Cleft History Paternal Grandmother","Family Cleft History Paternal Grandfather","Family Cleft History Paternal Aunt","Family Cleft History Paternal Uncle","Family Cleft History Cousin on Mothers Side","Family Cleft History Cousin on Fathers Side","Family Cleft History Comment"],
-            "order" : 6,
-            "expanded": true
-    },
-"patientPriorCleftSurgery": {
-            "title": "patientPriorCleftSurgery",
-            "translationKey": "REGISTRATION_PATIENT_PRIOR_CLEFT_SURGERY",
-            "attributes": ["Prior Cleft Surgery Date new","Prior Cleft Surgery Location","Prior Cleft Surgery Diagnosis","Prior Cleft Surgery Velopharyngeal Insufficiency","Cleft Surgery Type","Prior Cleft Surgery Type","Prior Cleft Surgery Comment"],
-            "order" : 7,
-            "expanded": true
-    },
+ "patientFamilyCleftHistory": {
+                "title": "patientFamilyCleftHistory",
+                "translationKey": "REGISTRATION_PATIENT_FAMILY_CLEFT_HISTORY",
+                "attributes": ["Family Cleft History Mother","Family Cleft History Father","Family Cleft History Sister","Family Cleft History Brother","Family Cleft History Maternal Grandmother","Family Cleft History Maternal Grandfather","Family Cleft History Maternal Aunt","Family Cleft History Maternal Uncle","Family Cleft History Paternal Grandmother","Family Cleft History Paternal Grandfather","Family Cleft History Paternal Aunt","Family Cleft History Paternal Uncle","Family Cleft History Cousin on Mother's side","Family Cleft History Cousin on Father's side","Family Cleft History Comment"],
+                "order" : 6,
+                "expanded": true
+        },
+ "patientPregnancyandBirthMedicalHistory": {
+                "title": "patientPregnancyandBirthMedicalHistory",
+                "translationKey": "REGISTRATION_PATIENT_PREGNANCY_AND_BIRTH_MEDICAL_HISTORY",
+                "attributes": ["Were there complications during pregnancy","Were there complications during birth","Did mother take vitamins during pregnancy","Did mother take vitamins before conception","Did mother smoke during pregnancy","Did mother have previous abortion","Number of previous abortions","Reason for abortion","Length of Pregnancy in months","Pregnancy and Birth Medical History Comment"],
+                "order" : 7,
+                "expanded": true
+        },
              "hidden": {
                     "attributes": [
                         "RationCard",
@@ -92,7 +91,7 @@
                 }
             },
             "addressHierarchy": {
-                "showAddressFieldsTopDown": true,
+                "showAddressFieldsTopDown": false,
                 "strictAutocompleteFromLevel": "stateProvince"
             },
             "relationshipTypeMap": {
@@ -100,16 +99,15 @@
                 "Parent":"patient"
             },
 
-            "isLastNameMandatory": true,
-            "isPhotoCaptureMandatory": true,
-	    "autoCompleteFields":["familyName", "caste"],
+            "autoCompleteFields":["familyName", "caste"],
             "defaultIdentifierPrefix": "YCC",
-            "mandatoryPersonAttributes": ["Consent form signed","First Name of Mother","Second Name of Mother","Third Name of Mother","First Contact City","First Contact Country"],
             "defaultVisitType": "OPD",
             "searchByIdForwardUrl": "/patient/{{patientUuid}}",
 	    "afterVisitSaveForwardUrl" : "../clinical/#/default/patient/{{patientUuid}}/dashboard", 
             "showMiddleName": true,
             "showLastName": true,
+            "isLastNameMandatory": true,
+            "isMiddleNameMandatory": true,
             "showSaveConfirmDialog": false,
             "showBirthTime": false,
             "showCasteSameAsLastNameCheckbox": false,
@@ -140,22 +138,6 @@
                     "required": false,
                     "label": "Fee"
                 },
-               "Purpose of the Visit" :{
-                "required": true,
-                "multiSelect": true
-            },
-                 "Accompanying the Patient" :{
-                "multiSelect" : true,
-                "required": true
-            },
-            "Current Education Level" :{
-                "multiSelect" : true,
-                "required": true
-            },
-            "Literacy level" :{
-                "multiSelect" : true,
-                "required": true
-            },
                 "FHS": {
                     "buttonSelect": true
                 },
@@ -177,7 +159,6 @@
                     "placeholder": "Enter Address",
                     "field": "address2"
                 }
-  }
-            
+            }
 	}
 }
